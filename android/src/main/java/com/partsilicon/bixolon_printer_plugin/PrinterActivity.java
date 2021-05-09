@@ -31,6 +31,9 @@ import com.partsilicon.bixolon_printer_plugin.PrinterControl.BixolonPrinter;
 import java.util.ArrayList;
 import java.util.Set;
 
+import static com.partsilicon.bixolon_printer_plugin.UtilsKt.textToBitmap;
+import static com.partsilicon.eliteutils.QrCodeUtilKt.generateQRCode;
+
 public class PrinterActivity extends AppCompatActivity
         implements View.OnClickListener ,  View.OnTouchListener {
 
@@ -145,7 +148,7 @@ public class PrinterActivity extends AppCompatActivity
                     public void run() {
                         if (getPrinterInstance().printerOpen(portType, devName, devAddr, checkBoxAsyncMode)) {
                             mHandler.obtainMessage(1, 0, 0, "Printer connected").sendToTarget();
-                            print(text_to_print);
+                            printAsImage();
                             mHandler.obtainMessage(2, 0, 0, "Printer connected").sendToTarget();
                         } else {
                             mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
@@ -229,7 +232,7 @@ public class PrinterActivity extends AppCompatActivity
                 }
             }).start();
         }else if(view.getId() == R.id.btnTestPrint){
-            print(txtData.getText().toString());
+            printAsImage();
         }
     }
 
@@ -269,6 +272,17 @@ public class PrinterActivity extends AppCompatActivity
             return false;
         }
     });
+
+    void printAsImage(){
+        getPrinterInstance().printImage(textToBitmap(text_to_print),380,getPrinterInstance().ALIGNMENT_CENTER,0,0,0);
+        if( qrCode_to_print!=null && !qrCode_to_print.isEmpty()) {
+            getPrinterInstance().printImage(generateQRCode(text_to_print),280,getPrinterInstance().ALIGNMENT_CENTER,0,0,0);
+            //Not worked
+            /*int symbology = getPrinterInstance().BARCODE_TYPE_QRCODE;
+            int Hri = getPrinterInstance().BARCODE_HRI_NONE;
+            getPrinterInstance().printBarcode(qrCode_to_print, symbology, 1, 280, getPrinterInstance().ALIGNMENT_CENTER, Hri);*/
+        }
+    }
 
     void print(String strData ){
 

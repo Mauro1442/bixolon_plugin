@@ -639,7 +639,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
 
         return ret;
     }
-
+    
     public boolean directIO(int command, byte[] data) {
         boolean ret = true;
         try {

@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(child: Text("Open Printer Activity"),
               onPressed: ()=>BixolonPrinterPlugin.showPrinterActivity ,),
               ElevatedButton(child: Text("Test Direct Print"),
-                onPressed: ()=>BixolonPrinterPlugin.printIt("رهرو آن نیست که گهی تند وگهی خسته رود", "") ,)
+                onPressed: ()=>BixolonPrinterPlugin.printIt("رهرو آن نیست که گهی تند وگهی خسته رود\nرهرو آنست که آهسته و پیوسته رود", "http://PartSilicon.com") ,)
             ],
           ),
 

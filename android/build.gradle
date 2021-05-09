@@ -41,4 +41,5 @@ dependencies {
     implementation files('libs\\libcommon_V1.0.9.jar')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.zxing:core:3.4.0'
 }
