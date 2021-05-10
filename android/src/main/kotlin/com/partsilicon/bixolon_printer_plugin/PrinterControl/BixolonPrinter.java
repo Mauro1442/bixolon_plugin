@@ -131,9 +131,9 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
         posPrinter.addOutputCompleteListener(this);
         posPrinter.addDirectIOListener(this);
 
-
-        bxlConfigLoader = new BXLConfigLoader(this.context);
         try {
+            Log.d("SGS","BXLConfigLoader inited");
+            bxlConfigLoader = new BXLConfigLoader(this.context);
             bxlConfigLoader.openFile();
         } catch (Exception e) {
             bxlConfigLoader.newFile();

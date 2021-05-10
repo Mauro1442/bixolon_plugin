@@ -34,11 +34,5 @@ public class Settings {
         saveSetting("deviceAddress" , address);
     }
 
-    public String getLogicalName(){
-        return  getSetting("logicalName");
-    }
-    public void saveLogicalName(String logicalName){
-        saveSetting("logicalName" , logicalName);
-    }
 
 }

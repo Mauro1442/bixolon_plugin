@@ -50,6 +50,8 @@ fun textToBitmap(text:String): Bitmap? {
 
 
     val bmpH = (lineNo * lineHeight.toInt())
+    if(bmpH<= 0 || bmpW<=0)
+        return  null
     val bitmap = Bitmap.createBitmap(bmpW, bmpH, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap);
     canvas.drawRect(0.0f,0.0f, bmpW.toFloat() , bmpH.toFloat() , pnt)
