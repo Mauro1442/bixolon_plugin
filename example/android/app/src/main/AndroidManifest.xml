@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.partsilicon.bixolon_printer_plugin_example">
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="16" />
    <application
         android:label="bixolon_printer_plugin_example"
         android:icon="@mipmap/ic_launcher">
